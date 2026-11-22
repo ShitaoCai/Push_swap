@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstiter.c                                       :+:    :+:            */
+/*   stack_helpers.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: shicai <shicai@student.codam.nl>             +#+                     */
+/*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/10/22 11:11:43 by shicai        #+#    #+#                 */
-/*   Updated: 2026/10/22 11:15:59 by shicai        ########   odam.nl         */
+/*   Created: 2026/11/22 18:45:17 by mde-rove      #+#    #+#                 */
+/*   Updated: 2026/11/22 18:50:45 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_stack	*new_stack(void)
 {
-	t_list	*temp;
+	t_stack	*stack;
 
-	if (!lst || !f)
-		return ;
-	temp = lst;
-	while (temp)
-	{
-		f(temp-> content);
-		temp = temp-> next;
-	}
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack -> top = NULL;
+	stack -> bottom = NULL;
+	stack -> size = 0;
+	return (stack);
 }

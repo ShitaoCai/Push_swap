@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_tolower.c                                       :+:    :+:            */
+/*   node_helpers.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: shicai <shicai@student.codam.nl>             +#+                     */
+/*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/10/06 16:41:19 by shicai        #+#    #+#                 */
-/*   Updated: 2026/10/12 14:28:34 by shicai        ########   odam.nl         */
+/*   Created: 2026/11/22 18:21:42 by mde-rove      #+#    #+#                 */
+/*   Updated: 2026/11/22 18:37:37 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "push_swap.h"
+
+t_node	*new_node(int number)
 {
-	if (c >= 'A' && c <= 'Z')
-		c = c + ('a' - 'A');
-	return (c);
+	t_node	*node;
+
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node -> value = number;
+	node -> next = NULL;
+	node -> prev = NULL;
+	return (node);
 }
-
-/* #include <stdio.h>
-
-int	main(void)
-{
-	printf("%i", ft_tolower('B'));
-	return (0);
-} */

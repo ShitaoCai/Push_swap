@@ -6,7 +6,7 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/21 14:39:55 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/22 16:16:10 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/22 18:38:17 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
+# include <limits.h>
+# include "libft/libft.h"
 
 typedef struct s_node
 {
@@ -47,5 +48,7 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+
+long long	argument_checker(const char *nptr);
 
 #endif
