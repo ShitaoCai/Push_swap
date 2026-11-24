@@ -6,7 +6,7 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/21 14:39:55 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/22 18:38:17 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/24 16:53:06 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_node
 {
