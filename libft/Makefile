@@ -54,6 +54,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	rm -f $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 %.o: %.c libft.h
@@ -67,6 +68,4 @@ fclean: clean
 
 re: fclean all
 
-bonus: all
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

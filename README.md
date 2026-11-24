@@ -28,6 +28,16 @@ Things to note: it is unclear whether a string containing the list of integers i
 
 3. libft/ and ft_printf/ should be in the root folder rather than includes/, becaus that directory is conventionally dedicated to header files.
 
+### Makefile
+1. Why use $(MAKE) -C?
+	This tells Make to enter the ft_printf directory and execute its Makefile. The same applies to Libft.
+	
+2. Why list the libraries as dependencies? \$(NAME): \$(OBJS) \$(PRINTF) \$(LIBFT)
+	This ensures both libraries are built before the executable is linked.
+
+3. Why use INCLUDES? INCLUDES = -Iincludes -Ilibft -Ift_printf
+	This lets your source files include headers directly. You won't need to write relative paths such as ../../libft/libft.h.
+
 # Instructions
 
 
