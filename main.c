@@ -6,7 +6,7 @@
 /*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 14:31:36 by mde-rove      #+#    #+#                 */
-/*   Updated: 2026/11/22 18:02:59 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/24 18:50:19 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,38 @@ long long	argument_checker(const char *nptr)
 	return (conv * minus);
 }
 
+int	is_dupe(t_stack *a, int arg)
+{
+	t_node *check;
 
-int	main(int argc, char **argv)
+	check = a->top;
+	while (check)
+	{
+		if (check->value == arg)
+			return (1);
+		check = check->next;
+	}	
+	return (0);
+}
+
+int	main ()
+{
+	t_stack	*stack_a = new_stack();
+	t_node	*node = new_node(5);
+
+	stack_a -> top = node;
+	stack_a -> bottom = node;
+	stack_a -> size = 1;
+	
+	printf("\nis dupe? -=- %d\n", is_dupe(stack_a, 5));
+	printf("\nis dupe? -=- %d\n", is_dupe(stack_a, 6));
+
+	return (0);
+}
+
+
+
+/* int	main(int argc, char **argv)
 {
 	int	i;
 	
@@ -58,4 +88,4 @@ int	main(int argc, char **argv)
 	}
 	printf("\nargc: %d\n", argc);
 	return (0);
-}
+} */

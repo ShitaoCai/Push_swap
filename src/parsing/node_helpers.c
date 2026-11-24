@@ -6,11 +6,11 @@
 /*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 18:21:42 by mde-rove      #+#    #+#                 */
-/*   Updated: 2026/11/22 18:37:37 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/24 18:34:31 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 t_node	*new_node(int number)
 {
