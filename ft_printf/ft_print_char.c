@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_char.c                                       :+:    :+:            */
+/*   ft_print_char.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/05 11:28:53 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/05 11:39:55 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/24 16:38:51 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 int	print_char(va_list args)

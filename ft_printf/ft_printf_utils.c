@@ -6,12 +6,11 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/27 12:01:50 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/07 12:57:52 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/24 16:38:41 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 int	ft_printf_utils(const char c, va_list args)
 {

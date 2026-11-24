@@ -26,6 +26,8 @@ Things to note: it is unclear whether a string containing the list of integers i
 2. Why doubly linked list? Why each node contains both 'next' and 'previous' and each stack containing 'top' and 'bottom'?
 	Makes it easier to do (reverse)rotations.
 
+3. libft/ and ft_printf/ should be in the root folder rather than includes/, becaus that directory is conventionally dedicated to header files.
+
 # Instructions
 
 

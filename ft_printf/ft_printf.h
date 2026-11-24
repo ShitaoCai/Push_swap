@@ -6,13 +6,14 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/27 10:56:49 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/07 12:57:07 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/24 16:38:28 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "../libft/libft.h"
 # include <stdarg.h>
 
 int	ft_printf(const char *format, ...);

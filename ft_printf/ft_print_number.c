@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_number.c                                     :+:    :+:            */
+/*   ft_print_number.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/05 11:43:13 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/07 13:00:26 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/24 16:38:44 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 int		count_number(long n);

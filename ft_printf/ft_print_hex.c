@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_hex.c                                        :+:    :+:            */
+/*   ft_print_hex.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/05 12:01:24 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/07 13:16:04 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/24 16:38:47 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 int	put_hex(unsigned long l, char *index);

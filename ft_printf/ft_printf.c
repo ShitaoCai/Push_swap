@@ -6,12 +6,11 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/10/27 11:20:53 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/07 12:58:25 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/24 16:38:37 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 int	ft_printf(const char *format, ...)
 {
