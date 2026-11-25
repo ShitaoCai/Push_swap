@@ -82,7 +82,7 @@ void	simple_sort(t_stack *a, t_stack *b)
 
 	if (!a || !b || check_sorted(a))
 		return ;
-	while (a->top)
+	while (a->size > 1)
 	{
 		minimum = find_min(a);
 		rotate_min_to_top(a, minimum);
