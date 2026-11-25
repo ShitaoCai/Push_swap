@@ -11,45 +11,41 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf.h"
 
-void	pa(t_stack *a, t_stack *b)
+static void	push_stack(t_stack *dst, t_stack *src)
 {
 	t_node	*temp;
 
-	if (b->size == 0)
+	temp = src->top;
+	src->top = src->top->next;
+	if (src->top)
+		src->top->prev = NULL;
+	src->size--;
+	if (src->size == 0)
+		src->bottom = NULL;
+	temp->prev = NULL;
+	temp->next = dst->top;
+	if (dst->top)
+		dst->top->prev = temp;
+	dst->top = temp;
+	dst->size++;
+	if (dst->size == 1)
+		dst->bottom = dst->top;
+}
+
+void	pa(t_stack *a, t_stack *b)
+{
+	if (!a || !b || !b->top)
 		return ;
-	temp = b->top;
-	b->top = b->top->next;
-	if (b->top)
-		b->top->prev = NULL;
-	b->size--;
-	temp->next = a->top;
-	if (a->top)
-		a->top->prev = temp;
-	a->top = temp;
-	a->size++;
+	push_stack(a, b);
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack *a, t_stack *b)
 {
-	t_node	*temp;
-
-	if (a->size == 0)
+	if (!a || !b || !a->top)
 		return ;
-	temp = a->top;
-	a->top = a->top->next;
-	if (a->top)
-		a->top->prev = NULL;
-	a->size--;
-	temp->next = b->top;
-	if (b->top)
-		b->top->prev = temp;
-	b->top = temp;
-	b->size++;
-}
-
-void	pa_pb(t_stack *a, t_stack *b)
-{
-	pa(a, b);
-	pb(a, b);
+	push_stack(b, a);
+	ft_printf("pb\n");
 }

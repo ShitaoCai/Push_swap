@@ -6,7 +6,7 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/21 14:39:55 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/25 17:29:15 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/25 17:42:16 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,29 @@ typedef struct s_stack
 void		sa(t_stack *a);
 void		sb(t_stack *b);
 void		ss(t_stack *a, t_stack *b);
+
 /* Push operations */
 void		pa(t_stack *a, t_stack *b);
 void		pb(t_stack *a, t_stack *b);
+
 /* Rotate operations */
 void		ra(t_stack *a);
 void		rb(t_stack *b);
 void		rr(t_stack *a, t_stack *b);
+
 /* Reverse rotate operations */
-void		rra(t_stack *a);
-void		rrb(t_stack *b);
-void		rrr(t_stack *a, t_stack *b);
-/* stack helpers */
+void			rra(t_stack *a);
+void			rrb(t_stack *b);
+void			rrr(t_stack *a, t_stack *b);
+/* Parsing */
 t_stack		*new_stack(void);
 int 		add_to_stack_bottom(t_stack *a, int number);
 void		free_stack(t_stack *stack);
-
-/* node helpers */
 t_node		*new_node(int number);
-/* parsing helpers */
 long long	argument_checker(const char *nptr);
 int			is_dupe(t_stack *a, int arg);
+
+/* Sorting */
+void		simple_sort(t_stack *a, t_stack *b);
 
 #endif

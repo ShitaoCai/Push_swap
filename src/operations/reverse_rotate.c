@@ -6,44 +6,59 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 15:48:27 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/22 16:10:34 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/25  by shicai              ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf.h"
+
+static void	reverse_rotate_stack(t_stack *stack)
+{
+	t_node	*node;
+
+	if (!stack || stack->size < 2)
+		return ;
+	node = stack->bottom;
+	stack->bottom = node->prev;
+	stack->bottom->next = NULL;
+	node->prev = NULL;
+	node->next = stack->top;
+	stack->top->prev = node;
+	stack->top = node;
+}
 
 void	rra(t_stack *a)
 {
-	t_node	*temp;
-
-	if (a->size < 2)
+	if (!a || a->size < 2)
 		return ;
-	temp = a->bottom;
-	a->bottom = a->bottom->prev;
-	a->bottom->next = NULL;
-	temp->prev = NULL;
-	temp->next = a->top;
-	a->top->prev = temp;
-	a->top = temp;
+	reverse_rotate_stack(a);
+	ft_printf("rra\n");
 }
 
 void	rrb(t_stack *b)
 {
-	t_node	*temp;
-
-	if (b->size < 2)
+	if (!b || b->size < 2)
 		return ;
-	temp = b->bottom;
-	b->bottom = b->bottom->prev;
-	b->bottom->next = NULL;
-	temp->prev = NULL;
-	temp->next = b->top;
-	b->top->prev = temp;
-	b->top = temp;
+	reverse_rotate_stack(b);
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	rra(a);
-	rrb(b);
+	int	changed;
+
+	changed = 0;
+	if (a && a->size >= 2)
+	{
+		reverse_rotate_stack(a);
+		changed = 1;
+	}
+	if (b && b->size >= 2)
+	{
+		reverse_rotate_stack(b);
+		changed = 1;
+	}
+	if (changed)
+		ft_printf("rrr\n");
 }
