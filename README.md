@@ -21,6 +21,10 @@ What's missing still: checking for duplicate integers. Plan: make helper functio
 
 Things to note: it is unclear whether a string containing the list of integers is a valid input. having to use split in case it is. 
 
+## Simple strategy — selection sort
+The simple strategy repeatedly finds the smallest value remaining in stack a. It rotates that value to the top using the shorter direction (ra or rra), then pushes it onto stack b with pb. Once a is empty, it moves all values back with pa. The values are then in ascending order in a, with the smallest at the top.
+For n values, finding the minimum scans each remaining part of a, for O(n²) comparisons overall. Moving each minimum to the top takes at most about half the current stack size in rotations, so the total rotations are O(n²). The pb and pa operations add 2n moves. Therefore, the generated Push_swap operation count is O(n²), meeting the required simple-strategy complexity. The algorithm reuses the existing nodes and stack b, with O(1) extra space beyond the stacks.
+
 ## FAQs:
 1. Why use linked list rather than dynamic array?
 	Linked list makes shifting integers much easier without the need to change the positioning of all other integers in the stack.
