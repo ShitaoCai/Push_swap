@@ -6,7 +6,7 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/21 14:39:55 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/24 18:41:51 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/25 17:29:15 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void		rrb(t_stack *b);
 void		rrr(t_stack *a, t_stack *b);
 /* stack helpers */
 t_stack		*new_stack(void);
+int 		add_to_stack_bottom(t_stack *a, int number);
+void		free_stack(t_stack *stack);
+
 /* node helpers */
 t_node		*new_node(int number);
 /* parsing helpers */

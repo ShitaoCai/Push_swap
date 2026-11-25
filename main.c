@@ -6,7 +6,7 @@
 /*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 14:31:36 by mde-rove      #+#    #+#                 */
-/*   Updated: 2026/11/24 18:50:19 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/25 17:30:06 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,40 +52,47 @@ int	is_dupe(t_stack *a, int arg)
 	return (0);
 }
 
-int	main ()
+int	main(int argc, char **argv)
 {
-	t_stack	*stack_a = new_stack();
-	t_node	*node = new_node(5);
-
-	stack_a -> top = node;
-	stack_a -> bottom = node;
-	stack_a -> size = 1;
+	int		i;
+	long long		llnumber;
+	t_stack	*a;
 	
-	printf("\nis dupe? -=- %d\n", is_dupe(stack_a, 5));
-	printf("\nis dupe? -=- %d\n", is_dupe(stack_a, 6));
-
-	return (0);
-}
-
-
-
-/* int	main(int argc, char **argv)
-{
-	int	i;
+	a = new_stack();
+	if (a == NULL)
+		return (1);
 	
 	i = 1;
-	while (i < argc)
-		printf("\nargument: %s\n\n", argv[i++]);
-	i = 1;
-	while (i < argc)
-		printf("\nargument in int: %lld\n\n", argument_checker(argv[i++]));
-	i = 1;
+
 	while (i < argc)
 	{
-		if (argument_checker(argv[i]) == LLONG_MIN)
-			printf("\nError: invalid argument for %s.\n\n", argv[i]);
+		llnumber = argument_checker(argv[i]);
+		if (llnumber == LLONG_MIN)
+		{
+			ft_printf("Error, invalid\n");
+			free_stack(a);
+			return (1);
+		}
+		if (is_dupe(a, llnumber) == 1)
+		{
+			ft_printf("Error, dupe\n");
+			free_stack(a);
+			return (1);
+		}
+		if (add_to_stack_bottom(a, llnumber) == 1)
+		{
+			ft_printf("Error, fail to add to stack\n");
+			free_stack(a);
+			return (1);
+		}
 		i++;
 	}
-	printf("\nargc: %d\n", argc);
+		t_node	*check = a -> top;
+		while (check)
+		{
+			printf(" %d", check -> value);
+			check = check -> next;
+		}
+	free_stack(a);
 	return (0);
-} */
+}

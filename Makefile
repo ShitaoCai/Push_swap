@@ -13,7 +13,13 @@ PRINTF_DIR = ./ft_printf
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-SRCS =
+SRCS = src/operations/push.c \
+	src/operations/reverse_rotate.c \
+	src/operations/rotate.c \
+	src/operations/swap.c \
+	src/parsing/node_helpers.c \
+	src/parsing/stack_helpers.c \
+	main.c
 
 OBJS = $(SRCS:.c=.o)
 
