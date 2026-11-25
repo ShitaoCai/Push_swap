@@ -5,6 +5,8 @@
 ## Shitao's Contribution
 ### Nov.22
 I was responsible for designing the stack data structure, choosing a doubly linked list approach, and defining the t_node and t_stack structures. I also implemented all 11 Push_swap operations (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr), ensuring efficient node manipulation through pointer operations.
+### Nov.25
+Today I implemented the simple O(n²) sorting strategy, added instruction printing to each stack operation, listed the current C source files in the top-level Makefile, and made the operations handle edge cases such as empty or one-element stacks safely.
 
 ## Miko's Contribution
 ### nov 22

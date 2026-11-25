@@ -61,5 +61,4 @@ long long	argument_checker(const char *nptr);
 /* Sorting */
 void		simple_sort(t_stack *a, t_stack *b);
 
-
 #endif

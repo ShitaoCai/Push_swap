@@ -12,37 +12,43 @@
 
 #include "push_swap.h"
 
-int	rotation_checker(t_stack *a, t_node *target);
+static t_node	*find_min(t_stack *a);
+static int		rotation_checker(t_stack *a, t_node *target);
+static void		rotate_min_to_top(t_stack *a, t_node *minimum);
 
-void	simple_sort(t_stack *a, t_stack *b)
+static int	check_sorted(t_stack *a)
 {
-	t_node	*temp;
-	t_node	*i;
+	t_node	*current;
 
-	while (a->top)
+	if (!a)
+		return (0);
+	current = a->top;
+	while (current && current->next)
 	{
-		i = a->top;
-		temp = a->top;
-		while (i)
-		{
-			if (temp->value > i->value)
-				temp = i;
-			i = i->next;
-		}
-		while (temp!=a->top)
-		{
-			if (rotation_checker(a, temp))
-				ra(a);
-			else
-				rra(a);
-		}
-		pb(a, b);
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
 	}
-	while (b->top)
-		pa(a, b);
+	return (1);
 }
 
-int	rotation_checker(t_stack *a, t_node *target)
+static t_node	*find_min(t_stack *a)
+{
+	t_node	*current;
+	t_node	*minimum;
+
+	current = a->top;
+	minimum = a->top;
+	while (current)
+	{
+		if (current->value < minimum->value)
+			minimum = current;
+		current = current->next;
+	}
+	return (minimum);
+}
+
+static int	rotation_checker(t_stack *a, t_node *target)
 {
 	t_node	*current;
 	int		count;
@@ -59,3 +65,29 @@ int	rotation_checker(t_stack *a, t_node *target)
 	return (0);
 }
 
+static void	rotate_min_to_top(t_stack *a, t_node *minimum)
+{
+	while (minimum != a->top)
+	{
+		if (rotation_checker(a, minimum))
+			ra(a);
+		else
+			rra(a);
+	}
+}
+
+void	simple_sort(t_stack *a, t_stack *b)
+{
+	t_node	*minimum;
+
+	if (!a || !b || check_sorted(a))
+		return ;
+	while (a->top)
+	{
+		minimum = find_min(a);
+		rotate_min_to_top(a, minimum);
+		pb(a, b);
+	}
+	while (b->top)
+		pa(a, b);
+}

@@ -6,40 +6,55 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 15:47:34 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/22 16:00:24 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/25  by shicai              ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ft_printf.h"
 
-void	sa(t_stack *a)
+static void	swap_stack(t_stack *stack)
 {
 	int	temp;
 
-	if (a->size < 2)
+	if (!stack || stack->size < 2)
 		return ;
-	temp = a->top->value;
-	a->top->value = a->top->next->value;
-	a->top->next->value = temp;
+	temp = stack->top->value;
+	stack->top->value = stack->top->next->value;
+	stack->top->next->value = temp;
+}
+
+void	sa(t_stack *a)
+{
+	if (!a || a->size < 2)
+		return ;
+	swap_stack(a);
 	ft_printf("sa\n");
 }
 
 void	sb(t_stack *b)
 {
-	int	temp;
-
-	if (b->size < 2)
+	if (!b || b->size < 2)
 		return ;
-	temp = b->top->value;
-	b->top->value = b->top->next->value;
-	b->top->next->value = temp;
+	swap_stack(b);
 	ft_printf("sb\n");
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
-	sa(a);
-	sb(b);
-	ft_printf("ss\n");
+	int	changed;
+
+	changed = 0;
+	if (a && a->size >= 2)
+	{
+		swap_stack(a);
+		changed = 1;
+	}
+	if (b && b->size >= 2)
+	{
+		swap_stack(b);
+		changed = 1;
+	}
+	if (changed)
+		ft_printf("ss\n");
 }
