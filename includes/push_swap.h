@@ -49,7 +49,9 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-
+/* Parsing */
+t_node	*new_node(int number);
+t_stack	*new_stack(void);
 long long	argument_checker(const char *nptr);
 
 #endif
