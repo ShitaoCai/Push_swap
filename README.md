@@ -17,9 +17,8 @@ On failure, the function returns `LLONG_MIN` value, since this can not be produc
 I chose to consider +5 as a valid integer. 
 The functions takes the argument in string form and returns it as `long long`. I intend to re-use this function also to add them into the stack structure.
 
-What's missing still: checking for duplicate integers. Plan: make helper functions for nodes and stacks. Comparing every return value from `argument_checker` to the stack. If true then free the stack and the nodes. Return error.
-
-Things to note: it is unclear whether a string containing the list of integers is a valid input. having to use split in case it is. 
+### nov 25
+today I managed to finish the making of the stack with argument input. finishing the parsing making it ready for the operations. it checks for duplicate integers with some helper functions for the stack. it correctly frees up any allocated memory for any fail or error encountered.
 
 ## Simple strategy — selection sort
 The simple strategy repeatedly finds the smallest value remaining in stack a. It rotates that value to the top using the shorter direction (ra or rra), then pushes it onto stack b with pb. Once a is empty, it moves all values back with pa. The values are then in ascending order in a, with the smallest at the top.
