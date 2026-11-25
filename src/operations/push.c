@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf.h"
 
 void	pa(t_stack *a, t_stack *b)
 {
@@ -33,6 +34,7 @@ void	pa(t_stack *a, t_stack *b)
 	a->size++;
 	if (a->size == 1)
 		a->bottom = a->top;
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -56,4 +58,5 @@ void	pb(t_stack *a, t_stack *b)
 	b->size++;
 	if (b->size == 1)
 		b->bottom = b->top;
+	ft_printf("pb\n");
 }

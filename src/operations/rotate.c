@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf.h"
 
 void	ra(t_stack *a)
 {
@@ -25,6 +26,7 @@ void	ra(t_stack *a)
 	a->bottom->next = temp;
 	temp->prev = a->bottom;
 	a->bottom = temp;
+	ft_printf("ra\n");
 }
 
 void	rb(t_stack *b)
@@ -40,10 +42,12 @@ void	rb(t_stack *b)
 	b->bottom->next = temp;
 	temp->prev = b->bottom;
 	b->bottom = temp;
+	ft_printf("rb\n");
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
 	ra(a);
 	rb(b);
+	ft_printf("rr\n");
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf.h"
 
 void	sa(t_stack *a)
 {
@@ -21,6 +22,7 @@ void	sa(t_stack *a)
 	temp = a->top->value;
 	a->top->value = a->top->next->value;
 	a->top->next->value = temp;
+	ft_printf("sa\n");
 }
 
 void	sb(t_stack *b)
@@ -32,10 +34,12 @@ void	sb(t_stack *b)
 	temp = b->top->value;
 	b->top->value = b->top->next->value;
 	b->top->next->value = temp;
+	ft_printf("sb\n");
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sb(b);
+	ft_printf("ss\n");
 }
