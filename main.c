@@ -6,7 +6,7 @@
 /*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 14:31:36 by mde-rove      #+#    #+#                 */
-/*   Updated: 2026/11/25 17:30:06 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/25 18:46:10 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ long long	argument_checker(const char *nptr)
 
 int	is_dupe(t_stack *a, int arg)
 {
-	t_node *check;
+	t_node	*check;
 
 	check = a->top;
 	while (check)
@@ -48,38 +48,36 @@ int	is_dupe(t_stack *a, int arg)
 		if (check->value == arg)
 			return (1);
 		check = check->next;
-	}	
+	}
 	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	long long		llnumber;
-	t_stack	*a;
-	
+	int			i;
+	long long	number;
+	t_stack		*a;
+
 	a = new_stack();
 	if (a == NULL)
 		return (1);
-	
 	i = 1;
-
 	while (i < argc)
 	{
-		llnumber = argument_checker(argv[i]);
-		if (llnumber == LLONG_MIN)
+		number = argument_checker(argv[i]);
+		if (number == LLONG_MIN)
 		{
 			ft_printf("Error, invalid\n");
 			free_stack(a);
 			return (1);
 		}
-		if (is_dupe(a, llnumber) == 1)
+		if (is_dupe(a, number) == 1)
 		{
 			ft_printf("Error, dupe\n");
 			free_stack(a);
 			return (1);
 		}
-		if (add_to_stack_bottom(a, llnumber) == 1)
+		if (add_to_stack_bottom(a, number) == 1)
 		{
 			ft_printf("Error, fail to add to stack\n");
 			free_stack(a);
@@ -87,12 +85,6 @@ int	main(int argc, char **argv)
 		}
 		i++;
 	}
-		t_node	*check = a -> top;
-		while (check)
-		{
-			printf(" %d", check -> value);
-			check = check -> next;
-		}
 	free_stack(a);
 	return (0);
 }

@@ -6,12 +6,11 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 15:47:54 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/22 16:09:25 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/25 18:19:56 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ft_printf.h"
 
 static void	push_stack(t_stack *dst, t_stack *src)
 {

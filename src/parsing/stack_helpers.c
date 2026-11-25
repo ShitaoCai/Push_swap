@@ -6,11 +6,11 @@
 /*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 18:45:17 by mde-rove      #+#    #+#                 */
-/*   Updated: 2026/11/25 17:26:04 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/25 18:44:54 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 t_stack	*new_stack(void)
 {
@@ -25,11 +25,13 @@ t_stack	*new_stack(void)
 	return (stack);
 }
 
-int add_to_stack_bottom(t_stack *a, int number)
+int	add_to_stack_bottom(t_stack *a, int number)
 {
-	t_node	*nwnode = new_node(number);
-	t_node	*stackbottom = a -> bottom;
-	
+	t_node	*nwnode;
+	t_node	*stackbottom;
+
+	nwnode = new_node(number);
+	stackbottom = a -> bottom;
 	if (nwnode == NULL)
 		return (1);
 	if (stackbottom == NULL)

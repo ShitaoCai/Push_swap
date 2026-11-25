@@ -6,7 +6,7 @@
 /*   By: shicai <shicai@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/21 14:39:55 by shicai        #+#    #+#                 */
-/*   Updated: 2026/11/25 17:42:16 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/25 18:45:23 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
+# include "libft.h"
+# include "ft_printf.h"
 
 typedef struct s_node
 {
@@ -49,12 +49,12 @@ void		rb(t_stack *b);
 void		rr(t_stack *a, t_stack *b);
 
 /* Reverse rotate operations */
-void			rra(t_stack *a);
-void			rrb(t_stack *b);
-void			rrr(t_stack *a, t_stack *b);
+void		rra(t_stack *a);
+void		rrb(t_stack *b);
+void		rrr(t_stack *a, t_stack *b);
 /* Parsing */
 t_stack		*new_stack(void);
-int 		add_to_stack_bottom(t_stack *a, int number);
+int			add_to_stack_bottom(t_stack *a, int number);
 void		free_stack(t_stack *stack);
 t_node		*new_node(int number);
 long long	argument_checker(const char *nptr);
