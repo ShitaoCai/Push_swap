@@ -24,6 +24,9 @@ The functions takes the argument in string form and returns it as `long long`. I
 ### nov 25
 today I managed to finish the making of the stack with argument input. finishing the parsing making it ready for the operations. it checks for duplicate integers with some helper functions for the stack. it correctly frees up any allocated memory for any fail or error encountered.
 
+### nov 27
+fixed the edgecase on parsing and started the disorder function. using `double` and `long long` to be safe of for big stacks.
+
 ## Simple strategy — selection sort
 The simple strategy repeatedly finds the smallest value remaining in stack a. It rotates that value to the top using the shorter direction (ra or rra), then pushes it onto stack b with pb. Once a is empty, it moves all values back with pa. The values are then in ascending order in a, with the smallest at the top.
 For n values, finding the minimum scans each remaining part of a, for O(n²) comparisons overall. Moving each minimum to the top takes at most about half the current stack size in rotations, so the total rotations are O(n²). The pb and pa operations add 2n moves. Therefore, the generated Push_swap operation count is O(n²), meeting the required simple-strategy complexity. The algorithm reuses the existing nodes and stack b, with O(1) extra space beyond the stacks.

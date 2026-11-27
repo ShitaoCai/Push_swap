@@ -6,7 +6,7 @@
 /*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 14:31:36 by mde-rove      #+#    #+#                 */
-/*   Updated: 2026/11/27 12:44:08 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/27 17:46:42 by mde-rove      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ long long	argument_checker(const char *nptr)
 		return (LLONG_MIN);
 	while ('0' <= *nptr && *nptr <= '9')
 	{
+		conv = conv * 10 + (*nptr - '0');
 		if ((conv * minus) < INT_MIN || INT_MAX < (conv * minus))
 			return (LLONG_MIN);
-		conv = conv * 10 + (*nptr - '0');
 		nptr++;
 	}
 	if (*nptr)
