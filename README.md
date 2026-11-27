@@ -1,7 +1,11 @@
 *This project has been created as part of the 42 curriculum by \<shicai> and \<mde-rove>*
 
 # Description
-
+`push_swap` is a command-line program. You give it numbers, and it prints the stack instructions that would sort them into ascending order. For example, a valid output for `./push_swap 2 1` is `sa`, which swaps the top two elements. If the numbers are already sorted or there are no arguments, it prints nothing. If the input is invalid, it writes `Error` followed by a newline to stderr.
+1. 	main.c starts the program, calls the parser, hands the stacks to the sorter, and cleans up.
+2. 	src/parsing/ validates the arguments and builds stack A.
+3. 	src/sorting/ decides which moves to make.
+4. 	src/operations/ performs those moves and prints their instruction names.
 ## Shitao's Contribution
 ### Nov.22
 I was responsible for designing the stack data structure, choosing a doubly linked list approach, and defining the t_node and t_stack structures. I also implemented all 11 Push_swap operations (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr), ensuring efficient node manipulation through pointer operations.

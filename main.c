@@ -6,12 +6,11 @@
 /*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 14:31:36 by mde-rove      #+#    #+#                 */
-/*   Updated: 2026/11/25 18:46:10 by mde-rove      ########   odam.nl         */
+/*   Updated: 2026/11/27 12:44:08 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
-#include <stdio.h>
+#include "push_swap.h"
 
 long long	argument_checker(const char *nptr)
 {
@@ -57,6 +56,7 @@ int	main(int argc, char **argv)
 	int			i;
 	long long	number;
 	t_stack		*a;
+	t_stack		*b;
 
 	a = new_stack();
 	if (a == NULL)
@@ -85,6 +85,9 @@ int	main(int argc, char **argv)
 		}
 		i++;
 	}
-	free_stack(a);
-	return (0);
+	b = new_stack();
+	if (b == NULL)
+		return (free_stack(a), 1);
+	simple_sort(a, b);
+	return (free_stack(a), free_stack(b), 0);
 }
