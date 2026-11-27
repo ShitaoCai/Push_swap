@@ -100,9 +100,15 @@ void	simple_sort(t_stack *a, t_stack *b)
 	if (!a || !b || check_sorted(a))
 		return ;
 	if (a->size == 2)
-		return (sa(a));
+	{
+		sa(a);
+		return ;
+	}
 	if (a->size == 3)
-		return (sort_three(a));
+	{
+		sort_three(a);
+		return ;
+	}
 	while (a->size > 1)
 	{
 		minimum = find_min(a);
