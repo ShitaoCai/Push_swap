@@ -6,7 +6,7 @@
 /*   By: mde-rove <mde-rove@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/22 14:31:36 by mde-rove      #+#    #+#                 */
-/*   Updated: 2026/11/27 12:44:08 by shicai        ########   odam.nl         */
+/*   Updated: 2026/11/28 11:04:19 by shicai        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int	main(int argc, char **argv)
 	b = new_stack();
 	if (b == NULL)
 		return (free_stack(a), 1);
-	simple_sort(a, b);
+	/* simple_sort(a, b); */
+	medium_sort(a, b);
 	return (free_stack(a), free_stack(b), 0);
 }

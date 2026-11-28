@@ -20,7 +20,8 @@ SRCS = main.c \
 	src/operations/swap.c \
 	src/parsing/node_helpers.c \
 	src/parsing/stack_helpers.c \
-	src/sorting/simple_sort.c
+	src/sorting/simple_sort.c \
+	src/sorting/medium_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -35,7 +36,7 @@ $(PRINTF):
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c
+%.o: %.c includes/push_swap.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:

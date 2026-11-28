@@ -1,0 +1,68 @@
+<div id="chunk-sort-walkthrough" style="display:grid;gap:12px">
+  <div class="viz-row">
+    <button class="btn" type="button" data-back>Previous move</button>
+    <button class="btn btn-primary" type="button" data-next>Next move</button>
+  </div>
+  <div data-state aria-live="polite">
+    <p data-step></p>
+    <p><strong>A</strong> <code data-a></code></p>
+    <p><strong>B</strong> <code data-b></code></p>
+    <p data-detail></p>
+  </div>
+</div>
+<script>
+(() => {
+  const root = document.getElementById("chunk-sort-walkthrough");
+  const a = [7, 2, 9, 0, 5, 1, 8, 4, 6, 3];
+  const b = [];
+  const chunks = [[0, 2], [3, 5], [6, 9]];
+  const frames = [];
+  function record(move, detail) {
+    frames.push({move, detail, a: [...a], b: [...b]});
+  }
+  record("Start", "Chunks are 0–2, 3–5, and 6–9.");
+  for (const [low, high] of chunks) {
+    const chunk = low + "–" + high;
+    for (let left = a.length; left > 0; left--) {
+      const top = a.shift();
+      if (top >= low && top <= high) {
+        b.unshift(top);
+        record("pb", top + " belongs to chunk " + chunk + ". Push it to B.");
+      } else {
+        a.push(top);
+        record("ra", top + " is outside chunk " + chunk + ". Rotate it to the bottom.");
+      }
+    }
+  }
+  for (const [low, high] of chunks.slice().reverse()) {
+    for (let target = high; target >= low; target--) {
+      const rotations = b.indexOf(target);
+      if (rotations < 0 || rotations > target - low) throw new Error("Target left its chunk");
+      for (let i = 0; i < rotations; i++) {
+        b.push(b.shift());
+        record("rb", "Bring " + target + " closer to the top of B.");
+      }
+      a.unshift(b.shift());
+      record("pa", target + " goes on top of A.");
+      for (let i = 0; i < rotations && b.length > 1; i++) {
+        b.unshift(b.pop());
+        record("rrb", "Undo a rotation to bring the current chunk back to the top.");
+      }
+    }
+  }
+  let step = 0;
+  const field = name => root.querySelector("[data-" + name + "]");
+  function render() {
+    const frame = frames[step];
+    field("step").textContent = step + " / " + (frames.length - 1) + " · " + frame.move;
+    field("a").textContent = frame.a.join("  ") || "empty";
+    field("b").textContent = frame.b.join("  ") || "empty";
+    field("detail").textContent = frame.detail;
+    field("back").disabled = step === 0;
+    field("next").disabled = step === frames.length - 1;
+  }
+  field("back").addEventListener("click", () => { if (step > 0) { step--; render(); } });
+  field("next").addEventListener("click", () => { if (step < frames.length - 1) { step++; render(); } });
+  render();
+})();
+</script>

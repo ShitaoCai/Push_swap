@@ -23,6 +23,7 @@
 typedef struct s_node
 {
 	int				value;
+	int				rank;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -62,5 +63,6 @@ int			is_dupe(t_stack *a, int arg);
 
 /* Sorting */
 void		simple_sort(t_stack *a, t_stack *b);
+void		medium_sort(t_stack *a, t_stack *b);
 
 #endif
